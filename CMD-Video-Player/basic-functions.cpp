@@ -147,22 +147,27 @@ Options:
   -v /path/to/video    Specify the video file to play
   -ct [st|dy]          Choose the contrast mode for ASCII art generation
                         st: Static contrast (default)
-                        dy: Dynamic contrast, scales the contrast dynamically based on the video
+                        dy: Dynamic contrast, scales the contrast dynamically 
+                            based on the video
   -c [s|l]             Choose the character set for ASCII art
                         s: Short character set "@#*+-:. " (default)
                         l: Long character set "@%#*+=^~-;:,'.` "
-  -chars "sequence"    Set a custom character sequence for ASCII art (perior to -c)
+  -chars "sequence"    Set a custom character sequence for ASCII art 
+                       (perior to -c)
                         Example: "@%#*+=-:. "
 
 Examples:
   play -v video.mp4 -ct dy -c l
-      Play 'video.mp4' using dynamic contrast and long character set for ASCII art.
+      Play 'video.mp4' using dynamic contrast and long character set 
+      for ASCII art.
   play -v 'a video.mp4' -chars "@#&*+=-:. "
       Play 'a video.mp4' with a custom character sequence for ASCII art.
   set -v 'default.mp4'
-      Set a default video path to 'default.mp4' for future playback commands.
+      Set a default video path to 'default.mp4' 
+      for future playback commands.
   set -ct dy
-      Set dynamic contrast as the default mode for future playback commands.
+      Set dynamic contrast as the default mode 
+      for future playback commands.
 
 Additional commands:
   help               Show this help message
