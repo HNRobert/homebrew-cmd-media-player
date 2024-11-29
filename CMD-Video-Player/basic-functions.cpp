@@ -176,7 +176,8 @@ Additional commands:
   set                Set default options (e.g., video path, contrast mode)
   save               Save the default options to a configuration file
 
-Other support? Visit https://github.com/HNRobert/CMD-Video-Player
+Version: v1.0.0
+Origin: https://github.com/HNRobert/CMD-Video-Player
 )";
     }
 }
