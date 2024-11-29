@@ -196,7 +196,7 @@ void play_video(const std::map<std::string, std::string> &params) {
     if (params_include(params, "-v")) {
         video_path = params.at("-v");
     } else {
-        print_error("No video but wanna play? Really? \nAdd a -v param, or type \"help\" to get usage");
+        print_error("No video but wanna play? Really? \nAdd a -v param, or type \"help\" to get more usage");
         return;
     }
 

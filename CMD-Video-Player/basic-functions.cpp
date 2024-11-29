@@ -162,8 +162,9 @@ Examples:
       for ASCII art.
   play -v 'a video.mp4' -chars "@#&*+=-:. "
       Play 'a video.mp4' with a custom character sequence for ASCII art.
+      (add quotation marks on both sides if the path contains space)
   set -v 'default.mp4'
-      Set a default video path to 'default.mp4' 
+      Set a default video path to 'default.mp4'
       for future playback commands.
   set -ct dy
       Set dynamic contrast as the default mode 
@@ -174,6 +175,8 @@ Additional commands:
   exit               Exit the program
   set                Set default options (e.g., video path, contrast mode)
   save               Save the default options to a configuration file
+
+Other support? Visit https://github.com/HNRobert/CMD-Video-Player
 )";
     }
 }
