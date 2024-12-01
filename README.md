@@ -12,7 +12,7 @@ brew tap hnrobert/cmd-video-player && brew install cmd-video-player
 
 <img width="697" alt="image" src="https://github.com/user-attachments/assets/75527a63-4e69-4a9a-a5a6-351450d97931">
 
-```txt
+```text
   ____ __  __ ____   __     ___     _            
  / ___|  \/  |  _ \  \ \   / (_) __| | ___  ___  
 | |   | |\/| | | | |  \ \ / /| |/ _` |/ _ \/ _ \ 
