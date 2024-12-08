@@ -2,7 +2,7 @@ class CmdMediaPlayer < Formula
   desc "CMD-Media-Player for home-brew"
   homepage "https://github.com/HNRobert/homebrew-cmd-media-player"
   
-  url "https://github.com/HNRobert/homebrew-cmd-meida-player/releases/download/v1.0.0/cmd-video-player.tar.gz"
+  url "https://github.com/HNRobert/homebrew-cmd-media-player/releases/download/v1.0.0/cmd-video-player.tar.gz"
   sha256 "91c70d20e2950d978373135f29ebd8f601f319c8d7169b0d440de41fda671691"
   
   resource "dependencies" do
