@@ -1,19 +1,34 @@
 class CmdMediaPlayer < Formula
   desc "CMD-Media-Player for home-brew"
   homepage "https://github.com/HNRobert/homebrew-cmd-media-player"
+  
   url "https://github.com/HNRobert/homebrew-cmd-meida-player/releases/download/v1.0.0/cmd-video-player.tar.gz"
   sha256 "91c70d20e2950d978373135f29ebd8f601f319c8d7169b0d440de41fda671691"
-  license "MIT"
   
-  depends_on "ffmpeg" => "7.1"
-  depends_on "opencv" => "4.10.0_11"
-  depends_on "sdl2" => "2.30.8"
+  resource "dependencies" do
+    url "https://github.com/HNRobert/homebrew-cmd-media-player/releases/download/v1.0.0.1/dependencies.tar.gz"
+    sha256 "aa702f28aee96a3b3e676c644c4cde41ea6d6840de9f5a490fd9046ddde4b6ef"
+  end
+
+  license "MIT"
 
   def install
     bin.install "cmd-media-player"
+
+    resource("dependencies").stage do
+      (prefix/"opencv").install Dir["opencv/*"]
+      (prefix/"ffmpeg").install Dir["ffmpeg/*"]
+      (prefix/"sdl2").install Dir["sdl2/*"]
+    end
+
   end
 
   test do
-    system "false"
+    assert_predicate bin/"cmd-media-player", :exist?
+    assert_match "cmd-media-player", shell_output("#{bin}/cmd-media-player --version")
+    
+    assert_predicate prefix/"opencv", :exist?
+    assert_predicate prefix/"ffmpeg", :exist?
+    assert_predicate prefix/"sdl2", :exist?
   end
 end
