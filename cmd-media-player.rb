@@ -16,9 +16,9 @@ class CmdMediaPlayer < Formula
     bin.install "cmd-media-player"
 
     resource("dependencies").stage do
-      (prefix/"opencv").install Dir["opencv/*"]
-      (prefix/"ffmpeg").install Dir["ffmpeg/*"]
-      (prefix/"sdl2").install Dir["sdl2/*"]
+      cp_r "opencv", prefix/"opencv"
+      cp_r "ffmpeg", prefix/"ffmpeg"
+      cp_r "sdl2", prefix/"sdl2"
     end
 
   end
