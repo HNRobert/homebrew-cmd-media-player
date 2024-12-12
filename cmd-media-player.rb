@@ -1,34 +1,34 @@
 class CmdMediaPlayer < Formula
-  desc "CMD-Media-Player for home-brew"
+  desc "CMD-Media-Player for Homebrew"
   homepage "https://github.com/HNRobert/homebrew-cmd-media-player"
-  
-  url "https://github.com/HNRobert/homebrew-cmd-media-player/releases/download/v1.0.0/cmd-media-player.tar.gz"
-  sha256 "933504d6aa0296f97f8a7f37c74940edd6584c5dbd510404765033e6d585fe6e"
-  
-  resource "dependencies" do
-    url "https://github.com/HNRobert/homebrew-cmd-media-player/releases/download/v1.0.0.1/dependencies.tar.gz"
-    sha256 "aa702f28aee96a3b3e676c644c4cde41ea6d6840de9f5a490fd9046ddde4b6ef"
-  end
-
+  url "https://github.com/HNRobert/CMD-Media-Player/archive/refs/tags/v1.0.1-beta.2.tar.gz"
+  sha256 "30c9fdfb56926cfbb10dd64a1d607c3ff6ba74dd9664e7cd61705928b6f7a18f"
   license "MIT"
 
-  def install
-    bin.install "cmd-media-player"
+  depends_on "cmake" => :build
+  depends_on "opencv"
+  depends_on "ffmpeg"
+  depends_on "sdl2"
+  depends_on "readline"
 
-    resource("dependencies").stage do
-      cp_r "opencv", prefix/"opencv"
-      cp_r "ffmpeg", prefix/"ffmpeg"
-      cp_r "sdl2", prefix/"sdl2"
+  def install
+    args = std_cmake_args
+
+    if Hardware::CPU.arm?
+      args << "-DCMAKE_OSX_ARCHITECTURES=arm64"
+    else
+      args << "-DCMAKE_OSX_ARCHITECTURES=x86_64"
     end
 
+    system "cmake", ".", *args
+    system "make", "install"
+    bin.install_symlink "cmd-media-player" => "cmdp"
   end
 
   test do
     assert_predicate bin/"cmd-media-player", :exist?
-    assert_match "cmd-media-player", shell_output("#{bin}/cmd-media-player --version")
-    
-    assert_predicate prefix/"opencv", :exist?
-    assert_predicate prefix/"ffmpeg", :exist?
-    assert_predicate prefix/"sdl2", :exist?
+    assert_predicate bin/"cmdp", :exist?
+    assert_match "CMD-Media-Player version", shell_output("#{bin}/cmd-media-player --version")
+    assert_match "Usage:", shell_output("#{bin}/cmdp --help")
   end
 end
