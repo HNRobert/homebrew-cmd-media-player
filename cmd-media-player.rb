@@ -1,6 +1,6 @@
 class CmdMediaPlayer < Formula
   desc "CMD-Media-Player for Homebrew"
-  homepage "https://github.com/HNRobert/CMD-Media-Player"
+  homepage "https://github.com/HNRobert/homebrew-cmd-media-player"
   url "https://github.com/HNRobert/CMD-Media-Player/archive/refs/tags/v1.0.1-beta.2.tar.gz"
   sha256 "30c9fdfb56926cfbb10dd64a1d607c3ff6ba74dd9664e7cd61705928b6f7a18f"
   license "MIT"
