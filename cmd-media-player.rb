@@ -20,8 +20,11 @@ class CmdMediaPlayer < Formula
       args << "-DCMAKE_OSX_ARCHITECTURES=x86_64"
     end
 
-    system "cmake", ".", *args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *args
+      system "make", "install"
+    end
+
     bin.install_symlink "cmd-media-player" => "cmdp"
   end
 
